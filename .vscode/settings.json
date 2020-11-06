@@ -1,0 +1,11 @@
+{
+    "javascript.validate.enable": false,
+    "standard.engine": "standardx",
+    "standard.autoFixOnSave": true,
+    "standard.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ]
+}
