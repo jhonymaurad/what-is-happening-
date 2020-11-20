@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
 
-const Header = () => {
+const Header = ({ title }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <div className='header'>
+    <div>
+      <nav className='header'>
+        <div className='header__logo'>{title}</div>
+        <ul className='header__links' style={{ transform: open ? 'translateX(0px)' : '' }}>
+          <li><a>Events</a></li>
+          <li><a>Profile</a></li>
+          <li><a>About</a></li>
+        </ul>
 
-      <a className='header__logo'>
-        Streamer
-      </a>
+        <AiOutlineMenu className='header__burger' onClick={() => setOpen(!open)} />
+      </nav>
 
-      <div className='header__right'>
-
-        All Streams
-
-      </div>
     </div>
-  )
-}
+  );
+};
+
+Header.defaultProps = {
+  title: 'What is Happening'
+};
 
 export default Header;
