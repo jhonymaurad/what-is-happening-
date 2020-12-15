@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { AiOutlineMenu } from 'react-icons/ai';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const Header = ({ title }) => {
-  const [open, setOpen] = useState(false);
+import { startLogout } from '../actions/auth';
+
+const Header = ({ title, startLogout }) => {
   return (
-    <div>
-      <nav className='header'>
-        <div className='header__logo'>{title}</div>
-        <ul className='header__links' style={{ transform: open ? 'translateX(0px)' : '' }}>
-          <li><a>Events</a></li>
-          <li><a>Profile</a></li>
-          <li><a>About</a></li>
-        </ul>
-
-        <AiOutlineMenu className='header__burger' onClick={() => setOpen(!open)} />
-      </nav>
-
-    </div>
+    <nav className='header'>
+      <div className='content-container'>
+        <div className='header__content'>
+          <Link className='header__title' to='/dashboard'>
+            <h1>{title}</h1>
+          </Link>
+          <Link className='header__title' to='/create'>Create Event</Link>
+          <button className='button button--link' onClick={startLogout}>Logout</button>
+        </div>
+      </div>
+    </nav>
   );
 };
 
@@ -24,4 +24,8 @@ Header.defaultProps = {
   title: 'What is Happening'
 };
 
-export default Header;
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => dispatch(startLogout())
+})
+
+export default connect(undefined, mapDispatchToProps)(Header);

@@ -1,100 +1,16 @@
 .header {
+    background: $dark-blue;
+  }
+  .header__title {
     color: white;
-    display: flex;
-    justify-content: space-around;
-    min-height: 10vh;
+    text-decoration: none;
+    h1 {
+      margin: 0;
+    }
+  }
+  .header__content {
     align-items: center;
-    background: $off-black;
-
-}
-
-.header__logo {
-    font-size: $l-size;
-    font-weight: 700;
-}
-
-.header__links {
     display: flex;
-    justify-content: space-around;
-    width: 30%;
-
-
-    a {
-       font-size: 18px;
-       font-weight: normal; 
-       cursor: pointer;
-    }
-
-    a:hover {
-        border-bottom: 1px solid white;
-    }
-}
-
-.header__burger {
-    font-size: $m-size;
-    display: none;
-    cursor: pointer;
-}
-
-@media all and (max-width: 768px) {
-    .header__burger {
-        display: block;
-    }
-
-    .header__links {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        background-color: aquamarine;
-        width: 40%;
-        padding: 40px;
-        transform: translateX(-500px);
-        transition: 0.5s ease-in-out;
-
-        li {
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        li:last-of-type {
-            border-bottom: 0px solid #fff;
-        }
-
-        a:hover {
-            border-bottom: 0px solid #fff;
-        }
-    }
-}
-
-// .header {
-//     background: $off-black;
-//     color: white;
-//     margin-bottom: $m-size;
-//     padding: $m-size 0;
-//   }
-  
-//   .header__title {
-//     font-size: $l-size;
-//     margin: 0;
-//   }
-  
-//   .header__subtitle {
-//     color: $off-white;
-//     font-size: $m-size;
-//     font-weight: 500;
-//     margin: 0;
-//   }
-
-//   .header__container {
-//     max-width: 68rem;
-//     margin: 0 auto;
-//     padding: 0 $m-size;
-//   }
-  
-//   @media (min-width: $desktop-breakpoint) {
-//     .header {
-//       margin-bottom: $xl-size;
-//     }
-//   }
+    justify-content: space-between;
+    padding: $s-size 0;
+  }

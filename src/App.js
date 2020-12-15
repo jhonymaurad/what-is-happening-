@@ -1,24 +1,12 @@
-import Header from './components/Header';
-import LoginPage from './components/LoginPage';
-
-import { firebase } from './firebase/firebase';
+import React from 'react';
+import AppRouter from './routers/AppRouter';
 
 function App () {
-  const title = 'What is happening ???'
   return (
-    <div className='App'>
-      <Header title={title} />
-      <LoginPage />
-    </div>
+    <>
+      <AppRouter />
+    </>
   );
 }
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log('log in');
-  } else {
-    console.log('log out');
-  }
-})
 
 export default App;

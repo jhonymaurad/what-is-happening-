@@ -4,34 +4,19 @@ import 'firebase/auth';
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyB-zdsUyVahBOvSmxlKeiJD4js5mYEPSi8',
-  authDomain: 'what-s-happening-in.firebaseapp.com',
-  databaseURL: 'https://what-s-happening-in.firebaseio.com',
-  projectId: 'what-s-happening-in',
-  storageBucket: 'what-s-happening-in.appspot.com',
-  messagingSenderId: '86695297494',
-  appId: '1:86695297494:web:d47e85712440ec006fe477'
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
   // Initialize Firebase
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
-
-// firebase.database().ref().set({
-//   name: 'jhony maurad',
-//   age: 36,
-//   isSingle: false
-// })
 
 const database = firebase.database();
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, googleAuthProvider };
-
-database.ref().set({
-  name: 'veronica',
-  status: 'single',
-  age: 21,
-  job: 'hair stylist'
-})
-
-database.ref('age').set(30)
+export { firebase, database, googleAuthProvider };
